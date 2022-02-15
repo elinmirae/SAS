@@ -1,20 +1,20 @@
-LIBNAME REX_T220 "D:\Ç¥º»ÄÚÈ£Æ®DB\06.T220"; RUN;
+LIBNAME T220 "D:\í‘œë³¸ì½”í˜¸íŠ¸DB\06.T220"; RUN;
 
-LIBNAME REX_jk "D:\Ç¥º»ÄÚÈ£Æ®DB\01.jk"; RUN;
+LIBNAME jk "D:\í‘œë³¸ì½”í˜¸íŠ¸DB\01.jk"; RUN;
 
-LIBNAME REX_gj "D:\Ç¥º»ÄÚÈ£Æ®DB\12.gj"; RUN;
+LIBNAME gj "D:\í‘œë³¸ì½”í˜¸íŠ¸DB\12.gj"; RUN;
 
-LIBNAME REX_T120 "D:\Ç¥º»ÄÚÈ£Æ®DB\02.T120"; RUN;
+LIBNAME T120 "D:\í‘œë³¸ì½”í˜¸íŠ¸DB\02.T120"; RUN;
 
-==================================================================================================================================================================================================================
+=========================================================================================================================================================================
 
-/*2. Áø·áDB*/
+/*2. ì§„ë£ŒDB*/
 /*T20*/
-/*¿ä¾ç°³½ÃÀÏÀÚ¿¡¼­ ¿ù »Ì¾Æ³»¼­ ¼ýÀÚÇüÀ¸·Î ÀüÈ¯*/
+/*ìš”ì–‘ê°œì‹œì¼ìžì—ì„œ ì›” ë½‘ì•„ë‚´ì„œ ìˆ«ìží˜•ìœ¼ë¡œ ì „í™˜*/
 %MACRO TEST2_T20_1(YEAR);
 %DO I=&YEAR %TO 2013;
-DATA REX_T120.NHID_GY20_T1_&I.__2;
-SET REX_T120.NHID_GY20_T1_&I;
+DATA T120.NHID_GY20_T1_&I.__2;
+SET T120.NHID_GY20_T1_&I;
 RECU_FR_DT_M = SUBSTR(RECU_FR_DT,5,2);
 RECU_FR_DT_M_1=1*RECU_FR_DT_M;
 OUTPUT;
@@ -23,17 +23,17 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T20_1(2002); /*2002-2013³â ¸ðµÎ Àû¿ë*/
+%TEST2_T20_1(2002); /*2002-2013ë…„ ëª¨ë‘ ì ìš©*/
 
 
-/*¿ùº°·Î ÀÚ¸£±â*/
+/*ì›”ë³„ë¡œ ìžë¥´ê¸°*/
 %MACRO TEST2_T20_2(YEAR,MONTH);
 %DO P=&YEAR %TO 2013;
 %DO I=&MONTH %TO 12;
 PROC SQL;
 CREATE TABLE NHID_GY20_T1_&P._&I AS
 SELECT *
-FROM REX_T120.NHID_GY20_T1_&P.__2
+FROM T120.NHID_GY20_T1_&P.__2
 WHERE RECU_FR_DT_M_1=&I;
 ;
 QUIT;
@@ -41,14 +41,14 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T20_2(2002,1); /*2002-2013³â ¿ùº°·Î ¸ðµÎ ÀÚ¸£±â*/
+%TEST2_T20_2(2002,1); /*2002-2013ë…„ ì›”ë³„ë¡œ ëª¨ë‘ ìžë¥´ê¸°*/
 
 /*T30*/
-/*¿ä¾ç°³½ÃÀÏÀÚ¿¡¼­ ¿ù »Ì¾Æ³»¼­ ¼ýÀÚÇüÀ¸·Î ÀüÈ¯*/
+/*ìš”ì–‘ê°œì‹œì¼ìžì—ì„œ ì›” ë½‘ì•„ë‚´ì„œ ìˆ«ìží˜•ìœ¼ë¡œ ì „í™˜*/
 %MACRO TEST2_T30_1(YEAR);
 %DO I=&YEAR %TO 2013;
-DATA REX_T120.NHID_GY30_T1_&I.__2;
-SET REX_T120.NHID_GY30_T1_&I;
+DATA T120.NHID_GY30_T1_&I.__2;
+SET T120.NHID_GY30_T1_&I;
 RECU_FR_DT_M = SUBSTR(RECU_FR_DT,5,2);
 RECU_FR_DT_M_1=1*RECU_FR_DT_M;
 OUTPUT;
@@ -57,17 +57,17 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T30_1(2002); /*2002-2013³â ¸ðµÎ Àû¿ë*/
+%TEST2_T30_1(2002); /*2002-2013ë…„ ëª¨ë‘ ì ìš©*/
 
 
-/*¿ùº°·Î ÀÚ¸£±â*/
+/*ì›”ë³„ë¡œ ìžë¥´ê¸°*/
 %MACRO TEST2_T30_2(YEAR,MONTH);
 %DO P=&YEAR %TO 2013;
 %DO I=&MONTH %TO 12;
 PROC SQL;
 CREATE TABLE NHID_GY30_T1_&P._&I AS
 SELECT *
-FROM REX_T120.NHID_GY30_T1_&P.__2
+FROM T120.NHID_GY30_T1_&P.__2
 WHERE RECU_FR_DT_M_1=&I;
 ;
 QUIT;
@@ -75,14 +75,14 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T30_2(2002,1); /*2002-2013³â ¿ùº°·Î ¸ðµÎ ÀÚ¸£±â*/
+%TEST2_T30_2(2002,1); /*2002-2013ë…„ ì›”ë³„ë¡œ ëª¨ë‘ ìžë¥´ê¸°*/
 
 /*T40*/
-/*¿ä¾ç°³½ÃÀÏÀÚ¿¡¼­ ¿ù »Ì¾Æ³»¼­ ¼ýÀÚÇüÀ¸·Î ÀüÈ¯*/
+/*ìš”ì–‘ê°œì‹œì¼ìžì—ì„œ ì›” ë½‘ì•„ë‚´ì„œ ìˆ«ìží˜•ìœ¼ë¡œ ì „í™˜*/
 %MACRO TEST2_T40_1(YEAR);
 %DO I=&YEAR %TO 2013;
-DATA REX_T120.NHID_GY40_T1_&I.__2;
-SET REX_T120.NHID_GY40_T1_&I;
+DATA T120.NHID_GY40_T1_&I.__2;
+SET T120.NHID_GY40_T1_&I;
 RECU_FR_DT_M = SUBSTR(RECU_FR_DT,5,2);
 RECU_FR_DT_M_1=1*RECU_FR_DT_M;
 OUTPUT;
@@ -91,17 +91,17 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T40_1(2002); /*2002-2013³â ¸ðµÎ Àû¿ë*/
+%TEST2_T40_1(2002); /*2002-2013ë…„ ëª¨ë‘ ì ìš©*/
 
 
-/*¿ùº°·Î ÀÚ¸£±â*/
+/*ì›”ë³„ë¡œ ìžë¥´ê¸°*/
 %MACRO TEST2_T40_2(YEAR,MONTH);
 %DO P=&YEAR %TO 2013;
 %DO I=&MONTH %TO 12;
 PROC SQL;
 CREATE TABLE NHID_GY40_T1_&P._&I AS
 SELECT *
-FROM REX_T120.NHID_GY40_T1_&P.__2
+FROM T120.NHID_GY40_T1_&P.__2
 WHERE RECU_FR_DT_M_1=&I;
 ;
 QUIT;
@@ -109,14 +109,14 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T40_2(2002,1); /*2002-2013³â ¿ùº°·Î ¸ðµÎ ÀÚ¸£±â*/
+%TEST2_T40_2(2002,1); /*2002-2013ë…„ ì›”ë³„ë¡œ ëª¨ë‘ ìžë¥´ê¸°*/
 
 /*T60*/
-/*¿ä¾ç°³½ÃÀÏÀÚ¿¡¼­ ¿ù »Ì¾Æ³»¼­ ¼ýÀÚÇüÀ¸·Î ÀüÈ¯*/
+/*ìš”ì–‘ê°œì‹œì¼ìžì—ì„œ ì›” ë½‘ì•„ë‚´ì„œ ìˆ«ìží˜•ìœ¼ë¡œ ì „í™˜*/
 %MACRO TEST2_T60_1(YEAR);
 %DO I=&YEAR %TO 2013;
-DATA REX_T120.NHID_GY60_T1_&I.__2;
-SET REX_T120.NHID_GY60_T1_&I;
+DATA T120.NHID_GY60_T1_&I.__2;
+SET T120.NHID_GY60_T1_&I;
 RECU_FR_DT_M = SUBSTR(RECU_FR_DT,5,2);
 RECU_FR_DT_M_1=1*RECU_FR_DT_M;
 OUTPUT;
@@ -125,17 +125,17 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T60_1(2002); /*2002-2013³â ¸ðµÎ Àû¿ë*/
+%TEST2_T60_1(2002); /*2002-2013ë…„ ëª¨ë‘ ì ìš©*/
 
 
-/*¿ùº°·Î ÀÚ¸£±â*/
+/*ì›”ë³„ë¡œ ìžë¥´ê¸°*/
 %MACRO TEST2_T60_2(YEAR,MONTH);
 %DO P=&YEAR %TO 2013;
 %DO I=&MONTH %TO 12;
 PROC SQL;
 CREATE TABLE NHID_GY60_T1_&P._&I AS
 SELECT *
-FROM REX_T120.NHID_GY60_T1_&P.__2
+FROM T120.NHID_GY60_T1_&P.__2
 WHERE RECU_FR_DT_M_1=&I;
 ;
 QUIT;
@@ -143,16 +143,16 @@ QUIT;
 %END;
 %MEND;
 
-%TEST2_T60_2(2002,1); /*2002-2013³â ¿ùº°·Î ¸ðµÎ ÀÚ¸£±â*/
+%TEST2_T60_2(2002,1); /*2002-2013ë…„ ì›”ë³„ë¡œ ëª¨ë‘ ìžë¥´ê¸°*/
 
-==================================================================================================================================================================================================================
+=========================================================================================================================================================================
 
-/*3.°Ç°­°ËÁøDB*/
-/*Ç¥º»ÄÚÈ£Æ®DB µ¥ÀÌÅÍ ºÒ·¯¿À±â(°³ÀÎÀÏ·Ã¹øÈ£ - PERSON_ID)*/
+/*3.ê±´ê°•ê²€ì§„DB*/
+/*í‘œë³¸ì½”í˜¸íŠ¸DB ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°(ê°œì¸ì¼ë ¨ë²ˆí˜¸ - PERSON_ID)*/
 %MACRO TEST3_1(CUT_STRT);
 %DO I=&CUT_STRT. %TO 2013;
-DATA REX_gj.NHID_GJ_&I.;
-SET REX_gj.NHID_GJ_&I;
+DATA gj.NHID_GJ_&I.;
+SET gj.NHID_GJ_&I;
 SEED =1234;
 RECU_FR_DT_m = RAND("integer",1,12);
 RUN; 
@@ -162,14 +162,14 @@ QUIT;
 
 %TEST3_1(2002);
 
-/*¿ùº°·Î ÀÚ¸£±â*/
+/*ì›”ë³„ë¡œ ìžë¥´ê¸°*/
 %MACRO TEST3_2(YEAR,MONTH);
 %DO P=&YEAR %TO 2013;
 %DO I=&MONTH %TO 12;
 PROC SQL;
 CREATE TABLE REX_gj.NHID_GJ_&P._&I AS
 SELECT *
-FROM REX_gj.NHID_GJ_&P.
+FROM gj.NHID_GJ_&P.
 WHERE RECU_FR_DT_m=&I;
 ;
 QUIT;
